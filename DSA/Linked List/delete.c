@@ -1,4 +1,4 @@
-//WAP to delete a node by position
+// WAP to delete a node by position
 #include <stdio.h>
 #include <stdlib.h>
 int num_of_nodes = 0;
@@ -63,23 +63,40 @@ void insert(int n)
         }
     }
 }
-void delete(int n)
+void delete (int n)
 {
     struct node *todelete, *prev;
     todelete = head;
     prev = head;
-    if(n == 1)
+    if (n == 1)
     {
         head = head->next;
         todelete->next = NULL;
         free(todelete);
     }
-    else if(n == num_of_nodes)
+    else if (n == num_of_nodes)
     {
-        while(todelete->next != NULL)
+        while (todelete->next != NULL)
         {
-            
+            prev = todelete;
+            todelete = todelete->next;
         }
+        prev->next = NULL;
+        free(todelete);
+    }
+    else
+    {
+        for (int i = 2; i < n; i++)
+        {
+            prev = todelete;
+            todelete = todelete->next;
+        }
+        if (todelete != NULL)
+        {
+            prev->next = todelete->next;
+            todelete->next = NULL;
+        }
+        free(todelete);
     }
 }
 void reverse()
@@ -127,6 +144,7 @@ int main()
         printf("2. Reverse\n");
         printf("3. Insert\n");
         printf("4. Display\n");
+        printf("5. Delete\n");
         printf("Enter selected choice: ");
         scanf("%d", &choice);
         switch (choice)
@@ -154,6 +172,14 @@ int main()
         case 4:
         {
             traverse();
+            break;
+        }
+        case 5:
+        {
+            int n;
+            printf("Enter position to be deleted: ");
+            scanf("%d", &n);
+            delete (n);
             break;
         }
         }
