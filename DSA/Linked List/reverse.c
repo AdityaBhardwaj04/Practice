@@ -33,15 +33,15 @@ void insert(int n)
     newNode = (struct node *)malloc(sizeof(struct node));
     printf("Enter data to be entered at position %d: ", n);
     scanf("%d", &newNode->data);
-    if(n == 0)
+    if (n == 0)
     {
         newNode->next = head;
         head = newNode;
     }
-    else while(ptr != NULL)
-    {
-        
-    }
+    else
+        while (ptr != NULL)
+        {
+        }
 }
 void reverse()
 {
