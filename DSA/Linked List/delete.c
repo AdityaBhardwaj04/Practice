@@ -137,7 +137,7 @@ void traverse()
 int main()
 {
     int choice;
-    while (choice != 5)
+    while (choice != 6)
     {
         printf("Enter Option:\n");
         printf("1.Create\n");
@@ -179,7 +179,7 @@ int main()
             int n;
             printf("Enter position to be deleted: ");
             scanf("%d", &n);
-            delete (n);
+            delete (n + 1);
             break;
         }
         }
